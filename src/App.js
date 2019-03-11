@@ -8,7 +8,7 @@ import CharacterList from './components/marvel/characters/CharacterList';
 class App extends Component {
 
   render() {
-    const uri = "marvel-manager";
+    const uri = "";
     return (
       <BrowserRouter>
         <div className="App">

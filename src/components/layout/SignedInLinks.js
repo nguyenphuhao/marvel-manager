@@ -4,7 +4,7 @@ const SignedInLinks = (props) => {
     return (
         <ul id={props.id ? props.id : new Date().getTime()} className={props.className}>
             <li>
-                <NavLink to="/">Characters</NavLink>
+                <NavLink to="../character">Characters</NavLink>
             </li>
             <li>
                 <NavLink to="/">Comics</NavLink>
