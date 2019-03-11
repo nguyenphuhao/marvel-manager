@@ -2,7 +2,7 @@
   "name": "marvel-manager",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://github.com/nguyenphuhao/marvel-manager",
+  "homepage": "https://nguyenphuhao.github.io/marvel-manager",
   "dependencies": {
     "@progress/kendo-data-query": "^1.5.0",
     "@progress/kendo-react-dateinputs": "^2.7.1",
@@ -11,9 +11,11 @@
     "@progress/kendo-react-inputs": "^2.7.1",
     "@progress/kendo-react-intl": "^2.7.1",
     "@progress/kendo-theme-bootstrap": "^3.2.2",
+    "@progress/kendo-theme-material": "^2.3.1",
     "gh-pages": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8"
   },
   "scripts": {

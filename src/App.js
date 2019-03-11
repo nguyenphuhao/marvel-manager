@@ -1,37 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import '@progress/kendo-theme-bootstrap/dist/all.css';
-import './App.css';
-
-// Import the Grid component.
-import { Grid, GridColumn } from '@progress/kendo-react-grid';  
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import '@progress/kendo-theme-material/dist/all.css';
+import Navbar from './components/layout/Navbar';
+import Dashboard from './components/dashboard/Dashboard';
+import CharacterDetails from './components/marvel/characters/CharacterDetails';
 
 class App extends Component {
- constructor(props) {
-   super(props);
 
-   this.state = {
-     data: [
-       {ProductName: "Hao", Price: 10},
-       {ProductName: "Chang", Price: 20}
-     ],
-     title: "Hello from KendoReact!"
-   }
- }
- render() {
-   return (
-     <div className="App">
-       <header className="App-header">
-         <img src={logo} className="App-logo" alt="logo" />
-         <h1 className="App-title">{this.state.title}</h1>
-       </header>
-         <Grid data={this.state.data}>
-           <GridColumn field="ProductName" title="Product name"/>
-           <GridColumn field="Price"/>
-         </Grid>
-     </div>
-   );
- }
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/character/:id" component={CharacterDetails} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+
+    );
+  }
 }
 
 export default App;
