@@ -12,7 +12,7 @@ class App extends Component {
 
    this.state = {
      data: [
-       {ProductName: "Chai", Price: 10},
+       {ProductName: "Hao", Price: 10},
        {ProductName: "Chang", Price: 20}
      ],
      title: "Hello from KendoReact!"
