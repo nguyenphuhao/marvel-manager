@@ -1,8 +1,8 @@
 {
   "name": "marvel-manager",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://nguyenphuhao.github.io/deploy-github",
+  "private": false,
+  "homepage": "https://nguyenphuhao.github.io/marvel-manager",
   "dependencies": {
     "@progress/kendo-data-query": "^1.5.0",
     "@progress/kendo-react-dateinputs": "^2.7.1",
