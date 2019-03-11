@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/marvel-manager/static/js/runtime~main.2656a4bb.js"
   },
   {
-    "revision": "d1c198c2812e19e42756",
-    "url": "/marvel-manager/static/js/main.d0214e46.chunk.js"
+    "revision": "d73358d308fddcf529ba",
+    "url": "/marvel-manager/static/js/main.32a28136.chunk.js"
   },
   {
     "revision": "04e120bbb8b5275937db",
     "url": "/marvel-manager/static/js/2.02e84499.chunk.js"
   },
   {
-    "revision": "d1c198c2812e19e42756",
+    "revision": "d73358d308fddcf529ba",
     "url": "/marvel-manager/static/css/main.6b21dfdb.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/marvel-manager/static/css/2.eb5661d1.chunk.css"
   },
   {
-    "revision": "876b1dc535f19ab9480ae1459a08263a",
+    "revision": "d56c4b5c6e81b47816c4ff9d0da3e3dd",
     "url": "/marvel-manager/index.html"
   }
 ];
