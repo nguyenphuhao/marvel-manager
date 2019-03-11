@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import CharacterList from './../marvel/characters/CharacterList';
+import CharacterGrid from '../marvel/characters/CharacterGrid';
 class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard container">
-                <div className="row">
-                    <div className="col s12">
-                        <CharacterList />
-                    </div>
-                </div>
+            <div>
+                <CharacterGrid />
             </div>
         )
     }

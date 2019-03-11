@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // Import the Grid component.
 import { Grid, GridColumn } from '@progress/kendo-react-grid';
 
-class CharacterList extends Component {
+class CharacterGrid extends Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +16,7 @@ class CharacterList extends Component {
     }
     render() {
         return (
-            <div className="container section character-list">
+            <div className="section character-list">
                 <h5>All Marvels</h5>
                 <Grid data={this.state.data}>
                     <GridColumn field="ProductName" title="Product name" />
@@ -26,4 +26,4 @@ class CharacterList extends Component {
         )
     }
 }
-export default CharacterList;
+export default CharacterGrid;

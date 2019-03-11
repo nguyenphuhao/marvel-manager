@@ -16,4 +16,4 @@ const SignedInLinks = (props) => {
     )
 }
 
-export default SignedInLinks
+export default SignedInLinks;
