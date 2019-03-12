@@ -3,7 +3,7 @@ import Dashboard from './../../components/dashboard/Dashboard';
 class DashboardView extends Component {
     render() {
         return (
-            <div className="dashboard-view container">
+            <div className="dashboard-view">
                 <Dashboard />
             </div>
         )

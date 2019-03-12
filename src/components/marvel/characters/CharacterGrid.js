@@ -36,10 +36,10 @@ class CharacterGrid extends Component {
                 >
                     <GridColumn field="name" width="150" title="Name" />
                     <GridColumn field="description" className='nowrap' title="Description" />
-                    <GridColumn field="thumbnail" width="160" title=" " cell={(props) => (
+                    <GridColumn field="thumbnail" width="200" title=" " cell={(props) => (
                         <td>
                             <Link to={'./character/' + props.dataItem['id']}>
-                                <img className="img-responsive" alt="" height='95' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
+                                <img className="img-responsive" alt="" height='150' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
                             </Link>
                         </td>
                     )} />

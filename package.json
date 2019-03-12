@@ -2,7 +2,7 @@
   "name": "marvel-manager",
   "version": "0.1.0",
   "private": false,
-  "homepage": "/marvel-manager/",
+  "homepage": "http://localhost:8080/marvel-manager",
   "dependencies": {
     "@progress/kendo-data-query": "^1.5.0",
     "@progress/kendo-react-dateinputs": "^2.7.1",

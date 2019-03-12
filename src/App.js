@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import NavbarView from './views/layout/NavbarView';
 import CharacterDetailsView from './views/marvel/characters/CharacterDetailsView';
@@ -9,17 +9,16 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <div className="App">
+      <HashRouter>
+        <div className="App container">
           <NavbarView />
           <Switch>
+            <Route exact path="/" component={DashboardView} />
+            <Route exact path="/character" component={CharacterGridView} />
             <Route path="/character/:id" component={CharacterDetailsView} />
-            <Route exact path="./" component={DashboardView} />
-            <Route exact path="./character" component={CharacterGridView} />
-            <Route path="./character/:id" component={CharacterDetailsView} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
 
     );
   }
