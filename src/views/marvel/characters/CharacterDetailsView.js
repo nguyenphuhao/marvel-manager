@@ -3,7 +3,7 @@ import CharacterDetails from '../../../components/marvel/characters/CharacterDet
 class CharacterDetailsView extends Component {
     render() {
         return (
-            <div className="charactergrid-view container">
+            <div>
                 <CharacterDetails id={this.props.match.params.id} />
             </div>
         )

@@ -11,7 +11,7 @@ const initState = {
 const characterReducer = (state = initState, action) => {
     switch (action.type) {
         case 'FETCH_ALL_CHARACTERS':
-            console.log(action.result.data);
+            //console.log(action.result.data);
             return {
                 ...state,
                 characters: action.result.data.data.results,
@@ -22,13 +22,13 @@ const characterReducer = (state = initState, action) => {
                 }
             };
         case 'FETCH_CHARACTER_BY_ID':
-            console.log(action.result.data);
+            //console.log(action.result.data);
             return {
                 ...state,
                 characters: action.result.data.data.results,
             };
         case 'SELECT_CHARACTER':
-            console.log(action.selectedId);
+            //console.log(action.selectedId);
             return { ...state, selectedId: action.selectedId };
         case 'CALL_ERRORS':
             return state;
