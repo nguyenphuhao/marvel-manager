@@ -1,10 +1,4 @@
 import CharacterService from './../../services/CharacterService';
-export const createCharacter = (character) => {
-    return (dispatch, getState) => {
-        //Make async call to database
-        dispatch({type: 'CREATE_CHARACTER', character});
-    }
-}
 export const fetchCharacters = (params) => {
     return async (dispatch, getState) => {
         try {
@@ -13,5 +7,11 @@ export const fetchCharacters = (params) => {
         } catch (error) {
             dispatch({type: 'CALL_ERRORS', error});
         }
+    }
+}
+
+export const selectCharacter = (selectedId) => {
+    return (dispatch, getState) => {
+        dispatch({type: 'SELECT_CHARACTER', selectedId});
     }
 }

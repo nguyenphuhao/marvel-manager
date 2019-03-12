@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // Import the Grid component.
 import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { connect } from 'react-redux';
-import { fetchCharacters } from '../../../store/actions/characterActions';
+import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
 class CharacterGrid extends Component {
     componentDidMount() {
         var params = {
@@ -18,12 +18,16 @@ class CharacterGrid extends Component {
             <div className="section character-list">
                 <h5>All Marvels</h5>
                 <Grid
-                    data={character.results}
-                    skip={character.offset}
-                    take={character.limit}
-                    total={character.total}
+                    data={character.characters.map(
+                        (item) => ({ ...item, selected: item.id === character.selectedId }))
+                    }
+                    selectedField="selected"
+                    skip={character.gridProps.offset}
+                    take={character.gridProps.limit}
+                    total={character.gridProps.total}
                     pageable={true}
                     onPageChange={this.handlePageChange}
+                    onRowClick={this.handleRowClick}
                 >
                     <GridColumn field="name" width="150" title="Name" />
                     <GridColumn field="description" className='nowrap' title="Description" />
@@ -43,18 +47,21 @@ class CharacterGrid extends Component {
         }
         this.props.fetchCharacters(params);
     }
+    handleRowClick = (event) => {
+        this.props.selectCharacter(event.dataItem.id);
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        character: state.characterRes.data
+        character: state.character
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchCharacters: (params) => dispatch(fetchCharacters(params))
-
+        fetchCharacters: (params) => dispatch(fetchCharacters(params)),
+        selectCharacter: (id) => dispatch(selectCharacter(id))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CharacterGrid);
