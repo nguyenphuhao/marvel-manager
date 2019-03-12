@@ -8,15 +8,14 @@ import CharacterGridView from './views/marvel/characters/CharacterGridView';
 class App extends Component {
 
   render() {
-    const uri = "";
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.REACT_APP_BASE_NAME}>
         <div className="App">
           <NavbarView />
           <Switch>
             <Route exact path="/" component={DashboardView} />
-            <Route path={uri + "/character"} component={CharacterGridView} />
-            <Route path={uri + "/character/:id"} component={CharacterDetails} />
+            <Route path="/character" component={CharacterGridView} />
+            <Route path="/character/:id" component={CharacterDetails} />
           </Switch>
         </div>
       </BrowserRouter>

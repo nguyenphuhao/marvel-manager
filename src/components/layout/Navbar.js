@@ -6,8 +6,8 @@ const Navbar = () => {
         <div>
             <nav className="red darken-2">
                 <div className="nav-wrapper">
-                    <Link to='#!' className="brand-logo">Marvel Manager</Link>
-                    <Link to="/#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
+                    <Link to='#' className="brand-logo">Marvel Manager</Link>
+                    <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
                     <SignedInLinks className="right hide-on-med-and-down"/>
                 </div>
 
