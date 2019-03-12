@@ -14,8 +14,8 @@ class App extends Component {
           <NavbarView />
           <Switch>
             <Route exact path="/" component={DashboardView} />
-            <Route path="/character" component={CharacterGridView} />
-            <Route path="/character/:id" component={CharacterDetailsView} />
+            <Route path={process.env.REACT_APP_BASE_NAME+"/character"} component={CharacterGridView} />
+            <Route path={process.env.REACT_APP_BASE_NAME+"/character/:id"} component={CharacterDetailsView} />
           </Switch>
         </div>
       </BrowserRouter>
