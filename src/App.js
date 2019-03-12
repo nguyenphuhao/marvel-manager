@@ -14,7 +14,7 @@ class App extends Component {
           <NavbarView />
           <Switch>
             <Route exact path="/" component={DashboardView} />
-            <Route exact path="/character" component={CharacterGridView} />
+            <Route path="/character" component={CharacterGridView} />
             <Route path="/character/:id" component={CharacterDetailsView} />
           </Switch>
         </div>
