@@ -9,6 +9,16 @@ export const fetchCharacters = (params) => {
         }
     }
 }
+export const fetchCharacterById = (params) => {
+    return async (dispatch, getState) => {
+        try {
+            let result = await CharacterService.fetchCharacterById(params);
+            dispatch({type: 'FETCH_CHARACTER_BY_ID', result});
+        } catch (error) {
+            dispatch({type: 'CALL_ERRORS', error});
+        }
+    }
+}
 
 export const selectCharacter = (selectedId) => {
     return (dispatch, getState) => {

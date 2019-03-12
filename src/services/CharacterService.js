@@ -2,7 +2,6 @@ import MarvelAPI from '../config/MarvelAPI';
 class CharacterService {
     constructor(){
         this.FETCH_ALL_CHARACTER = "/v1/public/characters";
-        this.FETCH_CHARACTER_BY_ID = "/v1/public/characters/:characterId";
     }
     fetchCharacters(params){
         console.log(params);
@@ -12,8 +11,8 @@ class CharacterService {
             params: params
         });
     }
-    fetchCharacterById(){
-        return MarvelAPI.get(this.FETCH_CHARACTER_BY_ID);
+    fetchCharacterById(id){
+        return MarvelAPI.get(this.FETCH_ALL_CHARACTER+"/"+id);
     }
 }
 export default new CharacterService();

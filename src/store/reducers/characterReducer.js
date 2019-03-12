@@ -21,6 +21,12 @@ const characterReducer = (state = initState, action) => {
                     total: action.result.data.data.total
                 }
             };
+        case 'FETCH_CHARACTER_BY_ID':
+            console.log(action.result.data);
+            return {
+                ...state,
+                characters: action.result.data.data.results,
+            };
         case 'SELECT_CHARACTER':
             console.log(action.selectedId);
             return { ...state, selectedId: action.selectedId };

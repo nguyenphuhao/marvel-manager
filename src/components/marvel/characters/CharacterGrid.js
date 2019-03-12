@@ -4,6 +4,7 @@ import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { connect } from 'react-redux';
 import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
 class CharacterGrid extends Component {
+    
     componentDidMount() {
         var params = {
             limit: 5,
@@ -13,7 +14,6 @@ class CharacterGrid extends Component {
     }
     render() {
         const { character } = this.props;
-        console.log(character)
         return (
             <div className="section character-list">
                 <h5>All Marvels</h5>
@@ -48,7 +48,7 @@ class CharacterGrid extends Component {
         this.props.fetchCharacters(params);
     }
     handleRowClick = (event) => {
-        this.props.selectCharacter(event.dataItem.id);
+        window.location.href=process.env.REACT_APP_BASE_NAME + "/character/" + event.dataItem.id;
     }
 }
 
