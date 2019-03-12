@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { connect } from 'react-redux';
 import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
+import { Link } from 'react-router-dom';
 class CharacterGrid extends Component {
-    
+
     componentDidMount() {
         var params = {
             limit: 5,
@@ -31,9 +32,11 @@ class CharacterGrid extends Component {
                 >
                     <GridColumn field="name" width="150" title="Name" />
                     <GridColumn field="description" className='nowrap' title="Description" />
-                    <GridColumn field="thumbnail" width="160"  title=" " cell={(props) => (
+                    <GridColumn field="thumbnail" width="160" title=" " cell={(props) => (
                         <td>
-                            <img className="img-responsive" alt="" height='95' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
+                            <Link to={'/character/' + props.dataItem['id']}>
+                                <img className="img-responsive" alt="" height='95' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
+                            </Link>
                         </td>
                     )} />
                 </Grid>
@@ -48,7 +51,7 @@ class CharacterGrid extends Component {
         this.props.fetchCharacters(params);
     }
     handleRowClick = (event) => {
-        window.location.href=process.env.REACT_APP_BASE_NAME + "/character/" + event.dataItem.id;
+        this.props.selectCharacter(event.dataItem.id);
     }
 }
 
