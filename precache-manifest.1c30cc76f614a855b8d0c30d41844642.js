@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/marvel-manager/static/css/2.eb5661d1.chunk.css"
   },
   {
-    "revision": "ddf79d9e7f4542303bd013934279f152",
+    "revision": "2138e39f44d4e9ce78edbffcd3f5e03a",
     "url": "/marvel-manager/index.html"
   }
 ];
