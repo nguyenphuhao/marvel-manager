@@ -8,17 +8,21 @@ class CharacterGrid extends Component {
 
     componentDidMount() {
         var params = {
-            limit: 5,
+            limit: 20,
             offset: 0,
         }
         this.props.fetchCharacters(params);
     }
     render() {
         const { character } = this.props;
+
+        const gridStyle = {
+            height: '700px'
+        }
         return (
             <div className="section character-list">
                 <h5>All Marvels</h5>
-                <Grid
+                <Grid style={gridStyle}
                     data={character.characters.map(
                         (item) => ({ ...item, selected: item.id === character.selectedId }))
                     }
@@ -34,7 +38,7 @@ class CharacterGrid extends Component {
                     <GridColumn field="description" className='nowrap' title="Description" />
                     <GridColumn field="thumbnail" width="160" title=" " cell={(props) => (
                         <td>
-                            <Link to={'/character/' + props.dataItem['id']}>
+                            <Link to={'./character/' + props.dataItem['id']}>
                                 <img className="img-responsive" alt="" height='95' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
                             </Link>
                         </td>

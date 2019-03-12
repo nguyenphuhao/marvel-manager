@@ -9,13 +9,13 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter basename={process.env.REACT_APP_BASE_NAME}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
           <NavbarView />
           <Switch>
             <Route exact path="/" component={DashboardView} />
-            <Route exact path={process.env.REACT_APP_BASE_NAME + "/character"} component={CharacterGridView} />
-            <Route path={process.env.REACT_APP_BASE_NAME + "/character/:id"} component={CharacterDetailsView} />
+            <Route exact path="/character" component={CharacterGridView} />
+            <Route path="/character/:id" component={CharacterDetailsView} />
           </Switch>
         </div>
       </BrowserRouter>
