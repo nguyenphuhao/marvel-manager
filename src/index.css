@@ -24,3 +24,9 @@ code {
 nav{
   margin-bottom: 40px;
 }
+
+.nowrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

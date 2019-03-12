@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CharacterGrid from '../marvel/characters/CharacterGrid';
+
 class Dashboard extends Component {
     render() {
         return (
@@ -9,4 +10,5 @@ class Dashboard extends Component {
         )
     }
 }
-export default Dashboard
+
+export default Dashboard;

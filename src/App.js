@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import '@progress/kendo-theme-material/dist/all.css';
+
 import NavbarView from './views/layout/NavbarView';
 import CharacterDetails from './components/marvel/characters/CharacterDetails';
 import DashboardView from './views/dashboard/DashboardView';
