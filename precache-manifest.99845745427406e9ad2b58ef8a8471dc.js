@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/marvel-manager/static/js/runtime~main.2656a4bb.js"
   },
   {
-    "revision": "7bf1dbfd211b9e4e3591",
-    "url": "/marvel-manager/static/js/main.c1ef9502.chunk.js"
+    "revision": "3435ad8f584a768b8e14",
+    "url": "/marvel-manager/static/js/main.1dac5381.chunk.js"
   },
   {
-    "revision": "c54dba50f8da367980a0",
-    "url": "/marvel-manager/static/js/2.511f3607.chunk.js"
+    "revision": "482eb3335358b4e38728",
+    "url": "/marvel-manager/static/js/2.9612e265.chunk.js"
   },
   {
-    "revision": "7bf1dbfd211b9e4e3591",
+    "revision": "3435ad8f584a768b8e14",
     "url": "/marvel-manager/static/css/main.27cfd27e.chunk.css"
   },
   {
-    "revision": "c54dba50f8da367980a0",
+    "revision": "482eb3335358b4e38728",
     "url": "/marvel-manager/static/css/2.eb5661d1.chunk.css"
   },
   {
-    "revision": "9797a84130f2f15d327684180c8d1276",
+    "revision": "e1193415181576b4912bc45dab54d398",
     "url": "/marvel-manager/index.html"
   }
 ];
