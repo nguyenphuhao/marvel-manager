@@ -8,6 +8,7 @@ const characterReducer = (state = initState, action) => {
                 ...state,
                 loaded: false,
                 error: null
+                
             };
         case 'FETCH_CHARACTERS_SUCCESS':
             return {
@@ -16,6 +17,7 @@ const characterReducer = (state = initState, action) => {
                 selectedId: null,
                 loaded: true,
                 error: null
+                
             };
         case 'FETCH_CHARACTERS_FAILURE':
             return {
@@ -28,7 +30,8 @@ const characterReducer = (state = initState, action) => {
             return {
                 ...state,
                 loaded: false,
-                error: null
+                error: null,
+                pressEnter: false
             };
         case 'FETCH_CHARACTERS_DETAILS_SUCCESS':
             return {
@@ -36,7 +39,7 @@ const characterReducer = (state = initState, action) => {
                 ...action.result,
                 loaded: true,
                 error: null
-            };  
+            };
         case 'FETCH_CHARACTERS_DETAILS_FAILURE':
             return {
                 ...state,
@@ -45,6 +48,8 @@ const characterReducer = (state = initState, action) => {
             };
         case 'SELECT_CHARACTER':
             return { ...state, selectedId: action.selectedId, error: null };
+        case 'SELECT_CHARACTER_ENTER':
+            return { ...state, selectedId: action.selectedId, pressEnter: true, error: null };
         case 'CALL_ERRORS':
             return state;
         default:

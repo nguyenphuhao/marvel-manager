@@ -56,3 +56,9 @@ export const selectCharacter = (selectedId) => {
         dispatch({ type: 'SELECT_CHARACTER', selectedId });
     }
 }
+
+export const enterCharacter = (selectedId) => {
+    return (dispatch, getState) => {
+        dispatch({ type: 'SELECT_CHARACTER_ENTER', selectedId });
+    }
+}

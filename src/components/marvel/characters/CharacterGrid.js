@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 // Import the Grid component.
 import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { connect } from 'react-redux';
-import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
-import { Link } from 'react-router-dom';
+import { fetchCharacters, selectCharacter, enterCharacter } from '../../../store/actions/characterActions';
+import { Link, Redirect } from 'react-router-dom';
 import LoadingPanel from '../../common/LoadingPanel';
 import ErrorPanel from '../../common/ErrorPanel';
+import Mousetrap from 'mousetrap';
 class CharacterGrid extends Component {
 
     componentDidMount() {
@@ -14,16 +15,20 @@ class CharacterGrid extends Component {
             offset: 0,
         }
         this.props.fetchCharacters(params);
+        Mousetrap.unbind('enter');
     }
     render() {
-        const { grid, error } = this.props;
+        const { grid, error, pressEnter } = this.props;
+        if (pressEnter === true) {
+            return <Redirect to={'/character/' + grid.selectedId} />
+        }
         return (
             <div className="section character-list">
                 <ErrorPanel error={error} />
                 <div className="row">
                     <div className="col s12">
                         <h5>All Marvels</h5>
-                        <Grid 
+                        <Grid
                             data={grid.data ? grid.data.map(
                                 (item) => ({ ...item, selected: item.id === grid.selectedId }))
                                 : []}
@@ -34,6 +39,7 @@ class CharacterGrid extends Component {
                             pageable={true}
                             onPageChange={this.handlePageChanged}
                             onRowClick={this.handleRowClick}
+                            onSelectionChange={this.selectionChange}
                         >
                             <GridColumn field="name" width="150" title="Name" />
                             <GridColumn field="description" className='nowrap' title="Description" />
@@ -59,8 +65,14 @@ class CharacterGrid extends Component {
         this.props.fetchCharacters(params);
     }
     handleRowClick = (event) => {
-        this.props.selectCharacter(event.dataItem.id);
+        var id = event.dataItem.id;
+        this.props.selectCharacter(id);
+        var props = this.props;
+        Mousetrap.bind('enter', function () {
+            props.enterCharacter(id);
+        })
     }
+
 }
 
 const mapStateToProps = (state) => {
@@ -73,13 +85,15 @@ const mapStateToProps = (state) => {
             total: state.character.total,
             data: state.character.results
         },
-        error: state.character.error
+        error: state.character.error,
+        pressEnter: state.character.pressEnter
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchCharacters: (params) => dispatch(fetchCharacters(params)),
+        enterCharacter: (id) => dispatch(enterCharacter(id)),
         selectCharacter: (id) => dispatch(selectCharacter(id))
     }
 }
