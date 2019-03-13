@@ -27,7 +27,6 @@ const characterReducer = (state = initState, action) => {
                 loaded: false
             };
         case 'FETCH_CHARACTERS_DETAILS_SUCCESS':
-        console.log(action.result)
             return {
                 ...state,
                 ...action.result,

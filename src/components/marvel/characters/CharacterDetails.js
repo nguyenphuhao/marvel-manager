@@ -10,7 +10,6 @@ class CharacterDetails extends Component {
     }
     componentDidMount() {
         this.props.fetchCharacterDetails(this.props.id);
-        console.log(this.props.id)
     }
     render() {
         const { loaded } = this.props;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 const ComicList = (props) => {
-    console.log(props);
     const comicList = props.comics && props.comics.length > 0 ? props.comics.map(c => {
         return (
             <li className="collection-item" key={c.id}>
