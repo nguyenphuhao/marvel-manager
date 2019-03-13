@@ -14,45 +14,41 @@ class CharacterDetails extends Component {
     render() {
         const { loaded } = this.props;
         console.log(this.props);
-        if (this.props.loaded && this.props.loaded === true) {
-            const { characters, comics } = this.props;
-            const ch = characters && characters.length > 0 ? characters[0] : null;
-            if (ch) {
-                return (
-                    <div className="container section character-details">
-                        <div className="row">
-                            <div className="col s4">
-                                <div className="card">
-                                    <div className="card-image" style={{
-                                        border: '1px solid #ddd',
-                                        borderRadius: '4px',
-                                        padding: '5px',
 
-                                    }}>
-                                        <img alt={ch.name} className="img-responsive" src={ch.thumbnail.path + "." + ch.thumbnail.extension} />
-                                    </div>
+        const { characters, comics } = this.props;
+        const ch = characters && comics && characters.length > 0 && comics.length > 0 ? characters[0] : null;
+        if (ch) {
+            return (
+                <div className="container section character-details">
+                    <div className="row">
+                        <div className="col s4">
+                            <div className="card">
+                                <div className="card-image" style={{
+                                    border: '1px solid #ddd',
+                                    borderRadius: '4px',
+                                    padding: '5px',
+                                }}>
+                                    <img alt={ch.name} className="img-responsive" src={ch.thumbnail.path + "." + ch.thumbnail.extension} />
                                 </div>
                             </div>
-                            <div className="col s8">
-                                <h4>{ch.name}</h4>
-                                <p>{ch.description}</p>
-                            </div>
                         </div>
-                        <div className="row">
-                            <div className="col s12">
-                                <ComicList comics={comics} />
-                            </div>
-
+                        <div className="col s8">
+                            <h4>{ch.name}</h4>
+                            <p>{ch.description}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col s12">
+                            <ComicList comics={comics} />
                         </div>
 
                     </div>
-                )
-            } else {
-                
-            }
-        } else {
-            return <LoadingPanel loaded={loaded} />;
+                    
+                </div>
+            )
         }
+        return <LoadingPanel loaded={loaded} />
+
     }
 }
 const mapStateToProps = (state) => {
