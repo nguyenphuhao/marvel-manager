@@ -10,10 +10,7 @@ const Navbar = () => {
                     <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
                     <SignedInLinks className="right hide-on-med-and-down"/>
                 </div>
-
             </nav>
-            <SignedInLinks id="mobile-demo" className="sidenav"/>
-            
         </div>
 
     )

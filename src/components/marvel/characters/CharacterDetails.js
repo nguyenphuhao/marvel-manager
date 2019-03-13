@@ -17,9 +17,7 @@ class CharacterDetails extends Component {
         if (this.props.loaded && this.props.loaded === true) {
             const { characters, comics } = this.props;
             const ch = characters && characters.length > 0 ? characters[0] : null;
-            if (!ch) {
-                return <Redirect to='/' />
-            } else {
+            if (ch) {
                 return (
                     <div className="container section character-details">
                         <div className="row">
@@ -49,6 +47,8 @@ class CharacterDetails extends Component {
 
                     </div>
                 )
+            } else {
+                
             }
         } else {
             return <LoadingPanel loaded={loaded} />;
