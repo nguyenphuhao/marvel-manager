@@ -8,14 +8,17 @@ import LoadingPanel from '../../common/LoadingPanel';
 import ErrorPanel from '../../common/ErrorPanel';
 import Mousetrap from 'mousetrap';
 class CharacterGrid extends Component {
-
+    componentWillMount(){
+        Mousetrap.unbind('tab');
+        Mousetrap.unbind('enter');
+    }
     componentDidMount() {
+        var props = this.props;
         var params = {
             limit: 20,
             offset: 0,
         }
-        this.props.fetchCharacters(params);
-        Mousetrap.unbind('enter');
+        props.fetchCharacters(params);
     }
     render() {
         const { grid, error, pressEnter } = this.props;
@@ -70,7 +73,16 @@ class CharacterGrid extends Component {
         var props = this.props;
         Mousetrap.bind('enter', function () {
             props.enterCharacter(id);
-        })
+        });
+        Mousetrap.bind('tab', function () {
+            var index = props.grid.data.findIndex( dataItem => dataItem.id === id);
+            index++;                        
+            if (index === props.grid.data.length) {
+                index = 0;
+            }
+            var tr = document.querySelectorAll(".k-master-row");
+            tr[index].querySelectorAll('td')[0].click();
+        });
     }
 
 }

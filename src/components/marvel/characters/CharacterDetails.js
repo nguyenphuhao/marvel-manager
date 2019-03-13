@@ -4,12 +4,20 @@ import { fetchCharacterDetails } from '../../../store/actions/characterActions';
 import LoadingPanel from '../../common/LoadingPanel';
 import ComicList from '../comics/ComicList';
 import ErrorPanel from '../../common/ErrorPanel';
+import Mousetrap from 'mousetrap';
+import { Link } from 'react-router-dom';
 class CharacterDetails extends Component {
     constructor(props) {
         super();
     }
+    componentWillMount() {
+        Mousetrap.unbind('esc');
+    }
     componentDidMount() {
         this.props.fetchCharacterDetails(this.props.id);
+        Mousetrap.bind('esc', function () {
+            document.querySelector('.back-link').click();
+        });
     }
     render() {
         const { loaded, error } = this.props;
@@ -43,6 +51,7 @@ class CharacterDetails extends Component {
                         </div>
 
                     </div>
+                    <div className="center-align"><Link className='back-link' to='/'>Go Back</Link></div>
                 </div>
             )
         }

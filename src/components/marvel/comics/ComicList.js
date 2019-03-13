@@ -35,7 +35,6 @@ const ComicList = (props) => {
                 {desktopDisplay}
                 {mobileDisplay}
             </ul>
-            <div className="center-align"><Link to='/'>Go Back</Link></div>
         </div>
     )
 }
