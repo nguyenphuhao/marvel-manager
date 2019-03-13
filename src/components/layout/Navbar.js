@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignedInLinks from './SignedInLinks';
-const Navbar = () => {
+const Navbar = (props) => {
     return (
-        <div>
+        <div className="navbar-fixed">
             <nav className="red darken-2">
                 <div className="nav-wrapper">
-                    <Link to='/' className="brand-logo"><img className="responsive-img" src="./img/logo1.png" alt="Marvel Manager"/></Link>
-                    <Link to="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
-                    <SignedInLinks className="right hide-on-med-and-down"/>
+                    <div className="mobile-view"><Link to='/' className="brand-logo center"><img className="responsive-img" src="./img/logo1.png" alt="Marvel Manager" /></Link></div>
+                    <div className="desktop-view"><Link to='/' className="brand-logo center"><img className="responsive-img" src="./img/logo1.png" alt="Marvel Manager" /></Link></div>
                 </div>
             </nav>
         </div>

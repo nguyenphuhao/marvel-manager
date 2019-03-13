@@ -18,34 +18,38 @@ class CharacterGrid extends Component {
         const { grid } = this.props;
 
         const gridStyle = {
-            height: '700px'
+            height: '520px'
         }
         return (
             <div className="section character-list">
-                <h5>All Marvels</h5>
-                <Grid style={gridStyle}
-                    data={grid.data ? grid.data.map(
-                        (item) => ({ ...item, selected: item.id === grid.selectedId }))
-                    : []}
-                    selectedField="selected"
-                    skip={grid.offset}
-                    take={grid.limit}
-                    total={grid.total}
-                    pageable={true}
-                    onPageChange={this.handlePageChanged}
-                    onRowClick={this.handleRowClick}
-                >
-                    <GridColumn field="name" width="150" title="Name" />
-                    <GridColumn field="description" className='nowrap' title="Description" />
-                    <GridColumn field="thumbnail" width="200" title=" " cell={(props) => (
-                        <td>
-                            <Link to={'/character/' + props.dataItem['id']}>
-                                <img className="img-responsive" alt="" height='150' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
-                            </Link>
-                        </td>
-                    )} />
-                </Grid>
-                <LoadingPanel loaded={grid.loaded} />
+                <div className="row">
+                    <div className="col s12">
+                        <h5>All Marvels</h5>
+                        <Grid 
+                            data={grid.data ? grid.data.map(
+                                (item) => ({ ...item, selected: item.id === grid.selectedId }))
+                                : []}
+                            selectedField="selected"
+                            skip={grid.offset}
+                            take={grid.limit}
+                            total={grid.total}
+                            pageable={true}
+                            onPageChange={this.handlePageChanged}
+                            onRowClick={this.handleRowClick}
+                        >
+                            <GridColumn field="name" width="150" title="Name" />
+                            <GridColumn field="description" className='nowrap' title="Description" />
+                            <GridColumn field="thumbnail" width="200" title=" " cell={(props) => (
+                                <td>
+                                    <Link to={'/character/' + props.dataItem['id']}>
+                                        <img className="img-responsive" alt="" height='150' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
+                                    </Link>
+                                </td>
+                            )} />
+                        </Grid>
+                        <LoadingPanel loaded={grid.loaded} />
+                    </div>
+                </div>
             </div>
         )
     }

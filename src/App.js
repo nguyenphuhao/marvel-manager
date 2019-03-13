@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <div className="App container">
+        <div className="App">
           <NavbarView />
           <Switch>
             <Route exact path="/" component={DashboardView} />

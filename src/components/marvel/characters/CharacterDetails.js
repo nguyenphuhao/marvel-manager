@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCharacterDetails } from '../../../store/actions/characterActions';
 import LoadingPanel from '../../common/LoadingPanel';
-import { Redirect } from 'react-router-dom';
 import ComicList from '../comics/ComicList';
 class CharacterDetails extends Component {
     constructor(props) {
@@ -17,11 +16,11 @@ class CharacterDetails extends Component {
 
         const { characters, comics } = this.props;
         const ch = characters && comics && characters.length > 0 && comics.length > 0 ? characters[0] : null;
-        if (ch) {
+        if (ch && loaded === true) {
             return (
-                <div className="container section character-details">
+                <div className="container section character-details desktop-device">
                     <div className="row">
-                        <div className="col s4">
+                        <div className="col s12 m4">
                             <div className="card">
                                 <div className="card-image" style={{
                                     border: '1px solid #ddd',
@@ -32,7 +31,7 @@ class CharacterDetails extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col s8">
+                        <div className="col s12 m8">
                             <h4>{ch.name}</h4>
                             <p>{ch.description}</p>
                         </div>
@@ -43,12 +42,12 @@ class CharacterDetails extends Component {
                         </div>
 
                     </div>
-                    
                 </div>
             )
         }
-        return <LoadingPanel loaded={loaded} />
-
+        return (
+            <LoadingPanel loaded={loaded} />
+        )
     }
 }
 const mapStateToProps = (state) => {
