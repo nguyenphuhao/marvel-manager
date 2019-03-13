@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const ComicList = (props) => {
     const desktopDisplay = props.comics && props.comics.length > 0 ? props.comics.map(c => {
         return (
-            <li className="collection-item desktop-view" key={c.id}>
+            <li className="collection-item show-on-medium-and-up hide-on-small-only" key={c.id}>
                 <div className="row">
                     <div className="col s9">
                         <div style={{ fontSize: '13pt' }}><b>{c.title}</b></div>
@@ -19,7 +19,7 @@ const ComicList = (props) => {
 
     const mobileDisplay = props.comics && props.comics.length > 0 ? props.comics.map(c => {
         return (
-            <li className="collection-item mobile-view" key={c.id}>
+            <li className="collection-item show-on-small hide-on-med-and-up" key={c.id}>
                 <div className="container">
                     <div className="center-align"><img width="70%" src={`${c.thumbnail.path}.${c.thumbnail.extension}`} alt={c.title} className="responsive-img" /></div>
                     <div className="center-align" style={{ fontSize: '13pt' }}><b>{c.title}</b></div>
