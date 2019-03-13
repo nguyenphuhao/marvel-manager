@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 const ComicList = (props) => {
     const desktopDisplay = props.comics && props.comics.length > 0 ? props.comics.map(c => {
         return (
