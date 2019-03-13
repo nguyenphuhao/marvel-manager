@@ -35,6 +35,7 @@ export const fetchCharacterDetails = (id) => {
             let result = {characters: [], comics:[]};
             dispatch({ type: 'FETCH_CHARACTERS_DETAILS', result });
             let charResult = await CharacterService.fetchCharacterById(id);
+            console.log(charResult)
             if (charResult.status === 200) {
                 result.characters = charResult.data.data.results;
             }

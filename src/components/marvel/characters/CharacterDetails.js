@@ -24,7 +24,7 @@ class CharacterDetails extends Component {
         console.log(this.props);
 
         const { characters, comics } = this.props;
-        const ch = characters && comics && characters.length > 0 && comics.length > 0 ? characters[0] : null;
+        const ch = characters && characters.length > 0 ? characters[0] : null;
         if (ch && loaded === true) {
             return (
                 <div className="container section character-details desktop-device">
@@ -42,7 +42,7 @@ class CharacterDetails extends Component {
                         </div>
                         <div className="col s12 m8">
                             <h4>{ch.name}</h4>
-                            <p>{ch.description}</p>
+                            <p>{ch.description ? ch.description : "Updating..."}</p>
                         </div>
                     </div>
                     <div className="row">

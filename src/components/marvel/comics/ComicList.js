@@ -27,7 +27,8 @@ const ComicList = (props) => {
             </li>
         )
     }) : "";
-    return (
+
+    const show = props.comics && props.comics.length > 0 ? (
         <div>
             <ul className="collection">
                 <li className="collection-header" style={{ marginLeft: '10px' }}><h4>Comic(s)</h4></li>
@@ -35,6 +36,15 @@ const ComicList = (props) => {
                 {mobileDisplay}
             </ul>
         </div>
-    )
+    ) : (
+            <div>
+                <ul className="collection">
+                    <li className="collection-header" style={{ marginLeft: '10px' }}><h4>No Comic(s)</h4></li>
+                    {desktopDisplay}
+                    {mobileDisplay}
+                </ul>
+            </div>
+        )
+    return show;
 }
 export default ComicList
