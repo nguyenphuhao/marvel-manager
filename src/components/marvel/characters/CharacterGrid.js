@@ -16,10 +16,6 @@ class CharacterGrid extends Component {
     }
     render() {
         const { grid } = this.props;
-
-        const gridStyle = {
-            height: '520px'
-        }
         return (
             <div className="section character-list">
                 <div className="row">
