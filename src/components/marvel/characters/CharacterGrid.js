@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
 import { Link } from 'react-router-dom';
 import LoadingPanel from '../../common/LoadingPanel';
+import ErrorPanel from '../../common/ErrorPanel';
 class CharacterGrid extends Component {
 
     componentDidMount() {
@@ -15,9 +16,10 @@ class CharacterGrid extends Component {
         this.props.fetchCharacters(params);
     }
     render() {
-        const { grid } = this.props;
+        const { grid, error } = this.props;
         return (
             <div className="section character-list">
+                <ErrorPanel error={error} />
                 <div className="row">
                     <div className="col s12">
                         <h5>All Marvels</h5>
@@ -70,7 +72,8 @@ const mapStateToProps = (state) => {
             limit: state.character.limit,
             total: state.character.total,
             data: state.character.results
-        }
+        },
+        error: state.character.error
     }
 }
 

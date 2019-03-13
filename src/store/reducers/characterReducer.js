@@ -6,39 +6,45 @@ const characterReducer = (state = initState, action) => {
         case 'FETCH_CHARACTERS':
             return {
                 ...state,
-                loaded: false
+                loaded: false,
+                error: null
             };
         case 'FETCH_CHARACTERS_SUCCESS':
             return {
                 ...state,
                 ...action.result.data.data,
                 selectedId: null,
-                loaded: true
+                loaded: true,
+                error: null
             };
         case 'FETCH_CHARACTERS_FAILURE':
             return {
                 ...state,
-                loaded: true
+                loaded: true,
+                error: action.error
             };
 
         case 'FETCH_CHARACTERS_DETAILS':
             return {
                 ...state,
-                loaded: false
+                loaded: false,
+                error: null
             };
         case 'FETCH_CHARACTERS_DETAILS_SUCCESS':
             return {
                 ...state,
                 ...action.result,
-                loaded: true
-            };
+                loaded: true,
+                error: null
+            };  
         case 'FETCH_CHARACTERS_DETAILS_FAILURE':
             return {
                 ...state,
-                loaded: true
+                loaded: true,
+                error: action.error
             };
         case 'SELECT_CHARACTER':
-            return { ...state, selectedId: action.selectedId };
+            return { ...state, selectedId: action.selectedId, error: null };
         case 'CALL_ERRORS':
             return state;
         default:

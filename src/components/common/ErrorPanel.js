@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 class ErrorPanel extends Component {
     render() {
         const errorPanel = (
-            <div className="k-loading-mask">
-                <span className="k-loading-text">Loading</span>
-                <div className="k-loading-image"></div>
-                <div className="k-loading-color"></div>
+            <div className="row">
+                <div className="col s12">
+                    <div className="card-panel red accent-1">{this.props.error ? this.props.error.errorMsg : ""}</div>
+                </div>
             </div>
         );
 
-        if (this.props.loaded && this.props.loaded === true) {
-            return ""
+        if (this.props.error && this.props.error.hasError === true) {
+            return errorPanel;
         }else{
-            return loadingPanel;
+            return "";
         }
     }
 }

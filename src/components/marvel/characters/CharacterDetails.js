@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCharacterDetails } from '../../../store/actions/characterActions';
 import LoadingPanel from '../../common/LoadingPanel';
 import ComicList from '../comics/ComicList';
+import ErrorPanel from '../../common/ErrorPanel';
 class CharacterDetails extends Component {
     constructor(props) {
         super();
@@ -11,7 +12,7 @@ class CharacterDetails extends Component {
         this.props.fetchCharacterDetails(this.props.id);
     }
     render() {
-        const { loaded } = this.props;
+        const { loaded, error } = this.props;
         console.log(this.props);
 
         const { characters, comics } = this.props;
@@ -44,6 +45,8 @@ class CharacterDetails extends Component {
                     </div>
                 </div>
             )
+        }else{
+            return <ErrorPanel error={error} />
         }
         return (
             <LoadingPanel loaded={loaded} />

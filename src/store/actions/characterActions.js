@@ -1,13 +1,19 @@
 import CharacterService from './../../services/CharacterService';
+var unexpected_error = {hasError: true, errorMsg: "Opps, Something went wrong!"};
 export const fetchCharacters = (params) => {
     return async (dispatch, getState) => {
         try {
             let result = null;
             dispatch({ type: 'FETCH_CHARACTERS', result });
             result = await CharacterService.fetchCharacters(params);
+            if (result.code !== 200) {
+                console.log(result);
+                dispatch({ type: 'FETCH_CHARACTERS_FAILURE', error: {hasError: true, errorMsg: result.message} });
+            }
             dispatch({ type: 'FETCH_CHARACTERS_SUCCESS', result });
         } catch (error) {
-            dispatch({ type: 'FETCH_CHARACTERS_FAILURE', error });
+
+            dispatch({ type: 'FETCH_CHARACTERS_FAILURE', error: unexpected_error });
         }
     }
 }
@@ -19,7 +25,7 @@ export const fetchCharacterById = (id) => {
             result = await CharacterService.fetchCharacterById(id);
             dispatch({ type: 'FETCH_CHARACTERS_SUCCESS', result });
         } catch (error) {
-            dispatch({ type: 'FETCH_CHARACTERS_FAILURE', error });
+            dispatch({ type: 'FETCH_CHARACTERS_FAILURE', error: unexpected_error });
         }
     }
 }
@@ -40,7 +46,7 @@ export const fetchCharacterDetails = (id) => {
             dispatch({ type: 'FETCH_CHARACTERS_DETAILS_SUCCESS', result });
         } catch (error) {
             console.error(error);
-            dispatch({ type: 'FETCH_CHARACTERS_DETAILS_FAILURE', error });
+            dispatch({ type: 'FETCH_CHARACTERS_DETAILS_FAILURE', error: unexpected_error });
         }
     }
 }
