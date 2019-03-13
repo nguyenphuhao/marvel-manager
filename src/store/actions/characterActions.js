@@ -2,20 +2,24 @@ import CharacterService from './../../services/CharacterService';
 export const fetchCharacters = (params) => {
     return async (dispatch, getState) => {
         try {
-            let result = await CharacterService.fetchCharacters(params);
-            dispatch({type: 'FETCH_ALL_CHARACTERS', result});
+            let result = null;
+            dispatch({type: 'FETCH_CHARACTERS', result });
+            result = await CharacterService.fetchCharacters(params);
+            dispatch({type: 'FETCH_CHARACTERS_SUCCESS', result});
         } catch (error) {
-            dispatch({type: 'CALL_ERRORS', error});
+            dispatch({type: 'FETCH_CHARACTERS_FAILURE', error});
         }
     }
 }
-export const fetchCharacterById = (params) => {
+export const fetchCharacterById = (id) => {
     return async (dispatch, getState) => {
         try {
-            let result = await CharacterService.fetchCharacterById(params);
-            dispatch({type: 'FETCH_CHARACTER_BY_ID', result});
+            let result = null;
+            dispatch({type: 'FETCH_CHARACTERS', result });
+            result = await CharacterService.fetchCharacterById(id);
+            dispatch({type: 'FETCH_CHARACTERS_SUCCESS', result});
         } catch (error) {
-            dispatch({type: 'CALL_ERRORS', error});
+            dispatch({type: 'FETCH_CHARACTERS_FAILURE', error});
         }
     }
 }

@@ -4,6 +4,7 @@ import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { connect } from 'react-redux';
 import { fetchCharacters, selectCharacter } from '../../../store/actions/characterActions';
 import { Link } from 'react-router-dom';
+import LoadingPanel from '../../common/LoadingPanel';
 class CharacterGrid extends Component {
 
     componentDidMount() {
@@ -14,7 +15,7 @@ class CharacterGrid extends Component {
         this.props.fetchCharacters(params);
     }
     render() {
-        const { character } = this.props;
+        const { grid } = this.props;
 
         const gridStyle = {
             height: '700px'
@@ -23,31 +24,32 @@ class CharacterGrid extends Component {
             <div className="section character-list">
                 <h5>All Marvels</h5>
                 <Grid style={gridStyle}
-                    data={character.characters.map(
-                        (item) => ({ ...item, selected: item.id === character.selectedId }))
-                    }
+                    data={grid.data ? grid.data.map(
+                        (item) => ({ ...item, selected: item.id === grid.selectedId }))
+                    : []}
                     selectedField="selected"
-                    skip={character.gridProps.offset}
-                    take={character.gridProps.limit}
-                    total={character.gridProps.total}
+                    skip={grid.offset}
+                    take={grid.limit}
+                    total={grid.total}
                     pageable={true}
-                    onPageChange={this.handlePageChange}
+                    onPageChange={this.handlePageChanged}
                     onRowClick={this.handleRowClick}
                 >
                     <GridColumn field="name" width="150" title="Name" />
                     <GridColumn field="description" className='nowrap' title="Description" />
                     <GridColumn field="thumbnail" width="200" title=" " cell={(props) => (
                         <td>
-                            <Link to={'./character/' + props.dataItem['id']}>
+                            <Link to={'/character/' + props.dataItem['id']}>
                                 <img className="img-responsive" alt="" height='150' src={`${props.dataItem[props.field].path}.${props.dataItem[props.field].extension}`} />
                             </Link>
                         </td>
                     )} />
                 </Grid>
+                <LoadingPanel loaded={grid.loaded} />
             </div>
         )
     }
-    handlePageChange = (event) => {
+    handlePageChanged = (event) => {
         var params = {
             limit: event.page.take,
             offset: event.page.skip,
@@ -61,7 +63,14 @@ class CharacterGrid extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        character: state.character
+        grid: {
+            loaded: state.character.loaded,
+            selectedId: state.character.selectedId,
+            offset: state.character.offset,
+            limit: state.character.limit,
+            total: state.character.total,
+            data: state.character.results
+        }
     }
 }
 
