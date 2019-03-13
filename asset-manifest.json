@@ -1,13 +1,13 @@
 {
   "main.css": "/marvel-manager/static/css/main.f7497a1b.chunk.css",
-  "main.js": "/marvel-manager/static/js/main.75811b20.chunk.js",
-  "main.js.map": "/marvel-manager/static/js/main.75811b20.chunk.js.map",
+  "main.js": "/marvel-manager/static/js/main.d5e919ed.chunk.js",
+  "main.js.map": "/marvel-manager/static/js/main.d5e919ed.chunk.js.map",
   "runtime~main.js": "/marvel-manager/static/js/runtime~main.2656a4bb.js",
   "runtime~main.js.map": "/marvel-manager/static/js/runtime~main.2656a4bb.js.map",
-  "static/js/2.41e7fbf6.chunk.js": "/marvel-manager/static/js/2.41e7fbf6.chunk.js",
-  "static/js/2.41e7fbf6.chunk.js.map": "/marvel-manager/static/js/2.41e7fbf6.chunk.js.map",
+  "static/js/2.2c71ec14.chunk.js": "/marvel-manager/static/js/2.2c71ec14.chunk.js",
+  "static/js/2.2c71ec14.chunk.js.map": "/marvel-manager/static/js/2.2c71ec14.chunk.js.map",
   "index.html": "/marvel-manager/index.html",
-  "precache-manifest.3e3f4e9ced8fec575abb6702a5ce6d63.js": "/marvel-manager/precache-manifest.3e3f4e9ced8fec575abb6702a5ce6d63.js",
+  "precache-manifest.5102a98b676e4a3d6463ccdb6a20d78f.js": "/marvel-manager/precache-manifest.5102a98b676e4a3d6463ccdb6a20d78f.js",
   "service-worker.js": "/marvel-manager/service-worker.js",
   "static/css/main.f7497a1b.chunk.css.map": "/marvel-manager/static/css/main.f7497a1b.chunk.css.map"
 }
