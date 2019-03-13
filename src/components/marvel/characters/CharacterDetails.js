@@ -45,11 +45,12 @@ class CharacterDetails extends Component {
                     </div>
                 </div>
             )
-        }else{
-            return <ErrorPanel error={error} />
         }
         return (
-            <LoadingPanel loaded={loaded} />
+            <div>
+                <ErrorPanel error={error} />
+                <LoadingPanel loaded={loaded} />
+            </div>
         )
     }
 }

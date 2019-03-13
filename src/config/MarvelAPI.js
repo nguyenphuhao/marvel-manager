@@ -7,4 +7,5 @@ MarvelAPI.defaults.params = {
     hash: process.env.REACT_APP_MARVEL_API_HASH,
     ts: ""
 }
+
 export default MarvelAPI;
