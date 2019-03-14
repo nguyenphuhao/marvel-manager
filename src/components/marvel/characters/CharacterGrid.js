@@ -8,8 +8,9 @@ import LoadingPanel from '../../common/LoadingPanel';
 import ErrorPanel from '../../common/ErrorPanel';
 import Mousetrap from 'mousetrap';
 class CharacterGrid extends Component {
-    componentWillMount(){
+    componentWillMount() {
         Mousetrap.unbind('tab');
+        Mousetrap.unbind('shift+tab');
         Mousetrap.unbind('enter');
     }
     componentDidMount() {
@@ -66,25 +67,50 @@ class CharacterGrid extends Component {
             offset: event.page.skip,
         }
         this.props.fetchCharacters(params);
+        var tr = document.querySelectorAll(".k-master-row");
+        tr[0].querySelectorAll('td')[0].click();
+        tr[0].querySelectorAll('td')[0].scrollIntoView();
+        Mousetrap.unbind('tab');
+        Mousetrap.unbind('shift+tab');
+        Mousetrap.unbind('enter');
     }
     handleRowClick = (event) => {
         var id = event.dataItem.id;
-        this.props.selectCharacter(id);
+        
         var props = this.props;
-        Mousetrap.bind('enter', function () {
+        var index = 0;
+        Mousetrap.unbind('tab');
+        Mousetrap.unbind('shift+tab');
+        Mousetrap.unbind('enter');
+        Mousetrap.bind('enter', function (e) {
+            e.preventDefault();
             props.enterCharacter(id);
         });
-        Mousetrap.bind('tab', function () {
-            var index = props.grid.data.findIndex( dataItem => dataItem.id === id);
-            index++;                        
+        Mousetrap.bind('tab', function (e) {
+            e.preventDefault();
+            index = props.grid.data.findIndex(dataItem => dataItem.id === id);
+            index++;
             if (index === props.grid.data.length) {
                 index = 0;
             }
             var tr = document.querySelectorAll(".k-master-row");
             tr[index].querySelectorAll('td')[0].click();
-        });
-    }
+            tr[index].querySelectorAll('td')[0].scrollIntoView();
 
+        });
+        Mousetrap.bind('shift+tab', function (e) {
+            e.preventDefault();
+            index = props.grid.data.findIndex(dataItem => dataItem.id === id);
+            index--;
+            if (index < 0) {
+                index = 0;
+            }
+            var tr = document.querySelectorAll(".k-master-row");
+            tr[index].querySelectorAll('td')[0].click();
+            tr[index].querySelectorAll('td')[0].scrollIntoView();
+        });
+        this.props.selectCharacter(id);
+    }
 }
 
 const mapStateToProps = (state) => {
